@@ -10,6 +10,7 @@ import bioImage from "@/Assets/Images/genomics.webp";
 
 import { useState } from "react";
 import QuarterBox from "@/Components/Shared/QuarterBox";
+import Link from "next/link";
 
 export const programData = [
   {
@@ -161,7 +162,15 @@ const SpecializedTrack = () => {
               {selectedItemData?.description}
             </p>
             <div>
-              <button className="text-primary text-lg mt-4 hover:border hover:scale-105 border-primary rounded-lg py-1 px-2">Learn More</button>
+            {/* <Link href="/courses> */}
+              <Link
+                href={`/courses/${selectedItemData?.slug} `} >
+                
+                  <button className="text-primary text-lg mt-4 hover:border hover:scale-105 border-primary rounded-lg py-1 px-2">
+                    Learn More
+                  </button>
+                
+              </Link>
             </div>
 
             <div className=" mt-8 gap-4 flex flex-col sm:flex-row ">
@@ -176,36 +185,32 @@ const SpecializedTrack = () => {
               ))}
             </div>
           </div>
-        
-        
+
           {/* Right Side */}
           <div className="px-4 space-y-6 flex-1 cursor-pointer basis-4/12">
-          {
-            programData.map((item)=>
-            <div 
-              onClick={()=> setSelectedItems(item.slug)}
-              key={item.slug}
-              className="gap-x-4 flex items-center pb-6 border-b"
-            >
-              <div className="flex-shrink-0 h-24 w-36" >
-                <Image 
-                  src={item.image} 
-                  alt={item.description}
-                  className={"h-24 rounded-lg object-cover hover:scale-105"}
+            {programData.map((item) => (
+              <div
+                onClick={() => setSelectedItems(item.slug)}
+                key={item.slug}
+                className="gap-x-4 flex items-center pb-6 border-b"
+              >
+                <div className="flex-shrink-0 h-24 w-36">
+                  <Image
+                    src={item.image}
+                    alt={item.description}
+                    className={"h-24 rounded-lg object-cover hover:scale-105"}
                   />
-              </div>
-              <div>
+                </div>
+                <div>
                   <h4 className="text-primary font-medium">
                     Specialized Track
                   </h4>
                   <h3 className="font-semibold text-xl">{item.header}</h3>
                 </div>
-            </div>
-            )
-          }
-          </div>  
-          
-        </div>    
+              </div>
+            ))}
+          </div>
+        </div>
       </Wrapper>
     </section>
   );
