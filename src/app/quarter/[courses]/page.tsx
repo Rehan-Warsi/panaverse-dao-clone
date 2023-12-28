@@ -1,8 +1,17 @@
+"use client"
 import { programData } from "@/Components/Widgets/SpecializedTrack";
 
-const Page = (slug: string) => {
-      const selectedData = programData.find((item)=> item.slug === slug)
-  console.log(slug);
+interface IProps {
+  params: {
+    courses:string
+  }
+}
+
+const Page = ( {params} : IProps) => {
+  
+      const selectedData = programData.find((item)=> item.slug === params.courses)
+      
+      console.log(params.courses);
   
   return (
     <div className="mt-10 flex gap-x-6 gap-y-8 flex-col-reverse lg:flex-row ">
