@@ -164,7 +164,8 @@ const SpecializedTrack = () => {
             <div>
             {/* <Link href="/courses> */}
               <Link
-                href={`/quarter/${selectedItemData?.slug} `} >
+                href={`/quarter/${selectedItemData?.slug} `}>
+                  
                 
                   <button className="text-primary text-lg mt-4 hover:border hover:scale-105 border-primary rounded-lg py-1 px-2">
                     Learn More

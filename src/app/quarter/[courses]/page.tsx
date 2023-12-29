@@ -1,31 +1,54 @@
-"use client"
+"use client";
 import { programData } from "@/Components/Widgets/SpecializedTrack";
-
+import coreImage from "@/Assets/Images/core-track-tech.png";
+import Image from "next/image";
+import Wrapper from "@/Components/Shared/Wrapper";
+import Button from "@/Components/Shared/Button";
 interface IProps {
   params: {
-    courses:string
-  }
+    courses: string;
+  };
 }
 
-const Page = ( {params} : IProps) => {
-  
-      const selectedData = programData.find((item)=> item.slug === params.courses)
-      
-      console.log(params.courses);
-  
+const Page = ({ params }: IProps) => {
+  const selectedData = programData.find((item) => item.slug === params.courses);
+
+  // console.log(params.courses);
+
   return (
-    <div className="mt-10 flex gap-x-6 gap-y-8 flex-col-reverse lg:flex-row ">
-      <div className="shadow-xl border border-slate-200 rounded-xl px-8 py-8 basis-8/12 sticky top-28 self-start">
-        <h3 className="text-primary text-lg font-medium mt-4">
-          Specialized Track
-        </h3>
-        <h1 className="text-2xl font-bold">{selectedData?.header}</h1>
-        <p className="text-lg text-slate-600 mt-3">
-          {selectedData?.description}
-        </p>
-      </div>
-    </div>
+    <section>
+      <div className="bg-slate-800 gap-x-16 py-20 flex flex-col md:flex-row">
+        <div className="mx-6 my-6 md:mx-24 md:my-16 justify-center items-center flex-1 text-lg text-green-500 font-medium">
+          <h3>Specialized Track</h3>
+          <h1 className="text-4xl text-white py-4">{selectedData?.header}</h1>
+          <h1 className="text-white">{selectedData?.description}</h1>
+          <div className="mt-10">
+              <Button>
+                <a target="_blank" href="https://www.piaic.org">
+                  Learn More
+                </a>
+              </Button>
+            </div>
+        </div>
+        <div className="flex-1 justify-center items-center mx-auto">
+        <Image src={coreImage} alt="Core Tech Image" width={500} height={500}></Image>
+        </div>
+
+      </div>      
+
+
+      
+      
+    </section>
   );
 };
 
 export default Page;
+
+{/* <div className="bg-slate-800 py-80 relative">
+<div className=" top-10 absolute md:top-40 text-xl text-green-600 font-semibold mx-24">
+  <h3>Specialized Track</h3>
+  
+  </div>
+
+</div> */}
