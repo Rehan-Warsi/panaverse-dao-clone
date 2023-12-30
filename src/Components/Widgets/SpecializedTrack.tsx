@@ -25,12 +25,16 @@ export const programData = [
         description:
           "W3-351: Developing Smart Contracts and Planet-Scale Web 3.0 Dapps",
         number: 4,
+        courseDetail:
+          "In this course you will learn how to develop Web 3.0 DApps, create a project, deploy it in production, write smart contracts, unit test them, and create user interfaces for them. We will also learn to develop ERC-20 and NFT tokens, DAOs, Oracles, etc. Please note that in order to develop Web 3 applications you also need to build on top of Web 2.0 technologies which we have already covered in the previous quarters.",
       },
       {
         header: "Quarter V",
         description:
           "MV-361: Developing Planet-Scale Open Virtual and Augmented Metaverse Experiences",
         number: 5,
+        courseDetail:
+          "The Web is the Metaverse. The metaverse requires an infrastructure that connects all of the metaverses so that we can travel between them. This is only achievable with open web-based metaverses. The internet and its browsers are magical. Federated but linked experiences connect pages, people, technology, businesses, standards, and nations. It's unlike anything else. The metaverse should replicate the best qualities of the web - it should just be the web. We just have to extend online responsive design from mobile to desktop to 3D, Augmented Reality, and Virtual Reality. This course will teach you how to build the Open Social Spatial Web with WebXR and WebGPU technologies",
       },
     ],
   },
@@ -46,11 +50,21 @@ export const programData = [
         description:
           "AI-351: Developing Planet-Scale Intelligent APIs and Python Programming",
         number: 4,
+        courseDetail: `Artificial intelligence is the simulation of human intelligence processes by machines, especially computer systems. The AI and Deep Learning Specialization is a foundational program that will aid in your comprehension of deep learning's potential, difficulties, and effects as well as equip you to take part in the creation of cutting-edge AI technology. \n 
+        
+        We will start this course by understanding the fundamentals and use cases for AI and move on to building next-gen intelligent apps using OpenAI’s powerful models and Next.js 13. 
+        
+        We'll conclude the course by learning about basic programming concepts using Python, such as lists, dictionaries, classes, functions, and loops, and practice writing clean and readable code with exercises for each topic. 
+        
+        We'll also learn how to make your programs interactive and how to test your code safely before adding it to a project. It is a fast-paced, thorough introduction to programming with Python 3.10+ that will have you writing programs, solving problems, and making things that work in no time. 
+        
+        In this quarter we will also learn Git, the distributed version control system. We will also review Git-based GitHub services.`,
       },
       {
         header: "Quarter V",
         description: "AI-361: Deep Learning and MLOps",
         number: 5,
+        courseDetail: "This course will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the development of leading-edge AI technology. We will finish the program by learning how to envision, create, and maintain integrated systems that run constantly in production. Production systems must manage constantly changing data, in stark contrast to typical machine learning modeling. The production system must also operate continuously at the lowest possible cost while delivering the highest possible performance.",
       },
     ],
   },
@@ -66,12 +80,14 @@ export const programData = [
         description:
           "CN-351: Certified Kubernetes Application Developer (CKAD)",
         number: 4,
+        courseDetail: "",
       },
       {
         header: "Quarter V",
         description:
           "CN-361: Developing Multi-Cloud Apps using CDK for Terraform",
         number: 5,
+        courseDetail: "",
       },
     ],
   },
@@ -87,11 +103,13 @@ export const programData = [
         description:
           "AC-351: Ambient Computing with Voice Assistants and Matter Devices",
         number: 4,
+        courseDetail: "",
       },
       {
         header: "Quarter V",
         description: "AC-361: Embedded Programming using C and Rust",
         number: 5,
+        courseDetail: "",
       },
     ],
   },
@@ -106,11 +124,13 @@ export const programData = [
         header: "Quarter IV",
         description: "Bio-351: Python for Biologists",
         number: 4,
+        courseDetail: "",
       },
       {
         header: "Quarter V",
         description: "Bio-361: Bioinformatics with Python",
         number: 5,
+        courseDetail: "",
       },
     ],
   },
@@ -125,11 +145,13 @@ export const programData = [
         header: "Quarter IV",
         description: "NPA-351: CCNA 200-301 Certification",
         number: 4,
+        courseDetail: "",
       },
       {
         header: "Quarter V",
         description: "NPA-361: Network Programmability and Automation",
         number: 5,
+        courseDetail: "",
       },
     ],
   },
@@ -162,27 +184,27 @@ const SpecializedTrack = () => {
               {selectedItemData?.description}
             </p>
             <div>
-            {/* <Link href="/courses> */}
-              <Link
-                href={`/quarter/${selectedItemData?.slug} `}>
-                  
-                
-                  <button className="text-primary text-lg mt-4 hover:border hover:scale-105 border-primary rounded-lg py-1 px-2">
-                    Learn More
-                  </button>
-                
+              {/* <Link href="/courses> */}
+              <Link href={`/quarter/${selectedItemData?.slug} `}>
+                <button className="text-primary text-lg mt-4 hover:border hover:scale-105 border-primary rounded-lg py-1 px-2">
+                  Learn More
+                </button>
               </Link>
             </div>
 
             <div className=" mt-8 gap-4 flex flex-col sm:flex-row ">
               {selectedItemData?.quarters.map((items) => (
-                <QuarterBox
+                <Link
                   key={items.number}
-                  description={items.description}
-                  header={items.header}
-                  number={items.number}
-                  haveBorder={false}
-                />
+                  href={`/quarter/${selectedItemData?.slug}`}
+                >
+                  <QuarterBox
+                    description={items.description}
+                    header={items.header}
+                    number={items.number}
+                    haveBorder={false}
+                  />
+                </Link>
               ))}
             </div>
           </div>
