@@ -4,6 +4,8 @@ import coreImage from "@/Assets/Images/core-track-tech.png";
 import Image from "next/image";
 import Wrapper from "@/Components/Shared/Wrapper";
 import Button from "@/Components/Shared/Button";
+import { useState } from "react";
+import Link from "next/link";
 const quaterData = [
   {
     iconName: "Q1",
@@ -35,9 +37,10 @@ interface IProps {
 
 const Page = ({ params }: IProps) => {
   const selectedData = programData.find((item) => item.slug === params.courses);
-  // console.log(params)
-  let quaterDescription = selectedData?.quarters[0].description;
-  let quaterCourseDetail = selectedData?.quarters[0].courseDetail;
+  
+  const [quarter,setQuarter] = useState(4)
+  
+  const quarterDetail = selectedData?.quarters.find((item) => item.number === quarter )
 
   return (
     <section>
@@ -68,13 +71,13 @@ const Page = ({ params }: IProps) => {
         <div className="flex flex-col-reverse lg:flex-row gap-x-10">
           <div className="py-10 px-4 md:w-8/12">
             <h3 className="md:text-lg font-bold text-primary whitespace-pre-line">
-              {quaterDescription}
+              {quarterDetail?.description}
             </h3>
             <h1 className="text-3xl md:text-4xl font-bold py-2">
               Course Description
             </h1>
             <p className="py-4 md:text-xl text-slate-600">
-              {quaterCourseDetail}
+              {quarterDetail?.courseDetail}
             </p>
 
             <div className="flex mt-4 w-[300px] md:w-[900px] mx-4 ">
@@ -88,61 +91,72 @@ const Page = ({ params }: IProps) => {
             </div>
           </div>
 
-          <div className=" border rounded-lg md:w-4/12 my-10 py-8 px-6 flex-col lg:flex-row">
+          <div className=" border rounded-lg md:w-4/12 my-10 py-8 px-6 flex-col lg:flex-row ">
             <h2 className="text-xl font-bold">Program Structure</h2>
             <p className="py-4 text-slate-600">
               After finishing the first three quarters, the participants will
               delve into two specialized quarters specific to their chosen
               specialization
             </p>
-            <div className="flex mt-6">
+            
+            <div  className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
+              
               <div className="flex w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary  text-16 items-center my-0.5 justify-center">
                 <p className="text-white  text-14 font-normal -rotate-45">Q1</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <Link href={`/core-tracks/1`}>
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter I
               </h2>
+              </Link>
             </div>
-
-            <div className="flex mt-6">
+            
+            <div className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q2</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <Link href={`/core-tracks/2`}>
+                <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter II
               </h2>
+              </Link>
+
             </div>
 
-            <div className="flex mt-6">
+            <div className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q3</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
-                Quarter III
-              </h2>
+              <Link href={`/core-tracks/3`}>
+                <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
+                  Quarter III
+                </h2>
+              </Link>
             </div>
             
 
-            <div className="flex mt-6">
+            <div onClick={()=>setQuarter(4)}
+              className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q4</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter IV
               </h2>
             </div>
-            <div className="flex mt-6">
+            <div onClick={()=>setQuarter(5)}
+             className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q5</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter V
               </h2>
             </div>
           </div>
 
           {/* <div className="border rounded-lg md:w-4/12 my-10 py-8 px-6 flex-col lg:flex-row  ">
-            <div>
+            <div3
               <h2 className="text-xl font-bold">Program Structure</h2>
               <p className="py-4 text-slate-600">
                 After finishing the first three quarters, the participants will

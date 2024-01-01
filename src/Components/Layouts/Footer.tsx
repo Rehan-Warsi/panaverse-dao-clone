@@ -8,7 +8,7 @@ import youtubeIcon from "@/Assets/Images/youtube.svg";
 import { programData } from "@/Components/Widgets/SpecializedTrack";
 import Link from "next/link";
 
-const Pages =["Home","Quarter 1","Quarter 2","Quarter 3"]
+const Pages =["Quarter 1","Quarter 2","Quarter 3"]
 
 const Footer = () => {
 
@@ -83,14 +83,20 @@ const Footer = () => {
           </div>
           
           <div className="flex-col md:flex-row basis-3/12  px-4 py-4 mt-2">
-            <h3 className="text-xl font-bold text-slate-700">Pages</h3>
+            <h3 className="text-xl font-bold text-slate-700 py-1">Pages</h3>
+            <Link href="/">Home<h3 className=""></h3></Link>
             {
-              Pages.map((items,i)=>(
+              Pages.map((items,i)=>{
+                let qtr = 1+i
+                return(
                 <div key={i} className="py-1 ">
-                  <h3 className="">{items}</h3>
+                  <Link href={`/core-tracks/${qtr}`}>
+                    <h3 className="">{items}</h3>
+                  </Link>
+     
                 </div>
-              ))
-            }
+              )}
+              )}
           </div>
         </div>
       </footer>
