@@ -75,7 +75,7 @@ const Footer = () => {
             {programData.map((items) => (
               <Link key={items.header} href={`/quarter/${items.slug}`}  >
             <div key={items.slug} className="py-1 ">
-                <h4 className="">{items.header}</h4>
+                <h4 className="hover:text-primary">{items.header}</h4>
               </div>
               </Link>
             ))}
@@ -84,14 +84,14 @@ const Footer = () => {
           
           <div className="flex-col md:flex-row basis-3/12  px-4 py-4 mt-2">
             <h3 className="text-xl font-bold text-slate-700 py-1">Pages</h3>
-            <Link href="/">Home<h3 className=""></h3></Link>
+            <Link href="/" className="hover:text-primary">Home</Link>
             {
               Pages.map((items,i)=>{
                 let qtr = 1+i
                 return(
                 <div key={i} className="py-1 ">
                   <Link href={`/core-tracks/${qtr}`}>
-                    <h3 className="">{items}</h3>
+                    <h3 className="hover:text-primary">{items}</h3>
                   </Link>
      
                 </div>

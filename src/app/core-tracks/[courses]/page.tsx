@@ -87,7 +87,7 @@ const Page = ({ params }: IProps) => {
               <div className="flex w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q1</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter I
               </h2>
             </div>
@@ -96,7 +96,7 @@ const Page = ({ params }: IProps) => {
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q2</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter II
               </h2>
             </div>
@@ -105,7 +105,7 @@ const Page = ({ params }: IProps) => {
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q3</p>
               </div>
-              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800">
+              <h2 className="mx-6 font-bold text-lg pt-0.5 text-slate-800 hover:text-primary">
                 Quarter III
               </h2>
             </div>
