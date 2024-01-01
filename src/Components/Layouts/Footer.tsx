@@ -6,6 +6,7 @@ import fbIcon from "@/Assets/Images/facebook.svg";
 import githubIcon from "@/Assets/Images/github.svg";
 import youtubeIcon from "@/Assets/Images/youtube.svg";
 import { programData } from "@/Components/Widgets/SpecializedTrack";
+import Link from "next/link";
 
 const Pages =["Home","Quarter 1","Quarter 2","Quarter 3"]
 
@@ -70,11 +71,15 @@ const Footer = () => {
           </div>
           <div className="basis-3/12 flex-col md:flex-row px-4 py-4 mt-2">
             <h3 className="text-xl font-bold text-slate-700">Programs</h3>
+            
             {programData.map((items) => (
-              <div key={items.slug} className="py-1 ">
-                <h4 className=" text-primary">{items.header}</h4>
+              <Link key={items.header} href={`/quarter/${items.slug}`}  >
+            <div key={items.slug} className="py-1 ">
+                <h4 className="">{items.header}</h4>
               </div>
+              </Link>
             ))}
+            
           </div>
           
           <div className="flex-col md:flex-row basis-3/12  px-4 py-4 mt-2">
@@ -82,7 +87,7 @@ const Footer = () => {
             {
               Pages.map((items,i)=>(
                 <div key={i} className="py-1 ">
-                  <h3 className="text-primary">{items}</h3>
+                  <h3 className="">{items}</h3>
                 </div>
               ))
             }

@@ -7,8 +7,6 @@ import Button from "@/Components/Shared/Button";
 interface IProps {
   params: {
     courses: string;
-    // header:string
-    // courseDetail:string
   };
 }
 
