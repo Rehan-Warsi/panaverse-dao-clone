@@ -16,7 +16,7 @@ const Footer = () => {
       <footer className="border-t">
         <div className="border-slate-200 shadow-xl flex flex-col md:flex-row basis-6/12 mt-10 gap-10 px-6">
           <div className="mt-6 ">
-            <Image src={Logo} alt="Panaverse Logo" width={200} height={200} />
+            <Image src={Logo} alt="Panaverse Logo" width={150} height={150} />
 
             <div className="w-3/4 px-2 py-6 ">
               <p className="text-lg text-slate-600  ">

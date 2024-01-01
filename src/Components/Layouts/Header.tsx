@@ -56,7 +56,7 @@ const Header = () => {
                   <ul className="absolute bg-white mx-2 my-6 min-w-max right-0 px-4 border rounded-md ">
                     {programData.map((item) => (
                       <Link key={item.header} href={`/quarter/${item.slug}`}  >
-                      <li className="my-2 px-4 py-2 text-slate-600 hover:bg-slate-100 transition duration-300">
+                      <li className="my-2 px-4 py-2 text-slate-600 hover:bg-slate-100">
                         {item.header}
                       </li>
                       </Link>
