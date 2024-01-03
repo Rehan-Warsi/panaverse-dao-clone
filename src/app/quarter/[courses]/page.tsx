@@ -136,7 +136,7 @@ const Page = ({ params }: IProps) => {
             
 
             <div onClick={()=>setQuarter(4)}
-              className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
+              className={`flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3 ${quarter === 4 ? "bg-slate-200 text-primary" :""}`}>
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q4</p>
               </div>
@@ -145,7 +145,7 @@ const Page = ({ params }: IProps) => {
               </h2>
             </div>
             <div onClick={()=>setQuarter(5)}
-             className="flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3">
+             className={`flex cursor-pointer hover:bg-slate-200 mt-6 px-4 py-3 ${quarter===5 ? "bg-slate-200 text-primary": ""}`}>
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q5</p>
               </div>

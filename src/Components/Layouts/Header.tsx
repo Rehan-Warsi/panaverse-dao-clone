@@ -22,7 +22,7 @@ const Header = () => {
   // };
 
   return (
-    <section>
+    
       <header className="sticky top-0 bg-white z-10 opacity-90 backdrop-blur-md">
         <Wrapper>
           <nav className="flex justify-between items-center">
@@ -70,7 +70,7 @@ const Header = () => {
           </nav>
         </Wrapper>
       </header>
-    </section>
+
   );
 };
 

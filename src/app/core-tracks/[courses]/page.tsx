@@ -6,6 +6,7 @@ import { CoreTrackData } from "@/Components/Widgets/coreTracks";
 import Button from "@/Components/Shared/Button";
 import coreImage from "@/Assets/Images/core-track-tech.png";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface IProps {
   params: {
@@ -14,13 +15,14 @@ interface IProps {
 }
 
 const Page = ({ params }: IProps) => {
-  
-  const [quarter,setQuarter] = useState(params.courses)
+  const pathName = usePathname();
+  const [quarter, setQuarter] = useState(params.courses);
   const selectedData = CoreTrackData.find(
     (item) => item.number === Number(quarter)
   );
-  
-  
+  const isQuarterSelected = (quarterNumber: number) =>
+    quarterNumber === quarter;
+
   return (
     <section>
       <div className="bg-slate-800 gap-x-16 py-20 flex flex-col md:flex-row">
@@ -66,8 +68,9 @@ const Page = ({ params }: IProps) => {
             <div className="flex mt-4 w-[300px] md:w-[900px] mx-4 ">
               <div className=" text-xl px-4 md:text-3xl font-bold md:px-10 md:py-14 border border-solid rounded-l-md border-primary  w-1/2">
                 Core Track
-                <p className=" text-sm md:text-lg text-primary font-normal">(Common in All Specializations)</p>
-
+                <p className=" text-sm md:text-lg text-primary font-normal">
+                  (Common in All Specializations)
+                </p>
               </div>
               <div className="text-xl px-4 md:text-2xl font-bold md:px-10 md:py-10  bg-primary rounded-r-md text-slate-200 w-1/2">
                 <h3>Duration</h3>
@@ -83,7 +86,12 @@ const Page = ({ params }: IProps) => {
               delve into two specialized quarters specific to their chosen
               specialization
             </p>
-            <div onClick={()=>setQuarter(1)} className="flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3">
+            <div
+              onClick={() => setQuarter(1)}
+              className={`flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3 ${
+                quarter == 1 ? "bg-slate-200 text-primary" : ""
+              }`}
+            >
               <div className="flex w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q1</p>
               </div>
@@ -92,7 +100,12 @@ const Page = ({ params }: IProps) => {
               </h2>
             </div>
 
-            <div onClick={()=>setQuarter(2)} className="flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3">
+            <div
+              onClick={() => setQuarter(2)}
+              className={`flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3 ${
+                quarter == 2 ? "bg-slate-200 text-primary" : ""
+              }`}
+            >
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q2</p>
               </div>
@@ -101,7 +114,12 @@ const Page = ({ params }: IProps) => {
               </h2>
             </div>
 
-            <div onClick={()=>setQuarter(3)} className="flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3">
+            <div
+              onClick={() => setQuarter(3)}
+              className={`flex mt-2 cursor-pointer hover:bg-slate-200 px-4 py-3 ${
+                quarter == 3 ? "bg-slate-200 text-primary" : ""
+              }`}
+            >
               <div className=" w-8 h-8 rounded-md rotate-45 bg-gradient-to-tr bg-primary flex text-16 items-center my-0.5 justify-center">
                 <p className="text-white text-14 font-normal -rotate-45">Q3</p>
               </div>
@@ -109,7 +127,6 @@ const Page = ({ params }: IProps) => {
                 Quarter III
               </h2>
             </div>
-            
           </div>
         </div>
       </Wrapper>
