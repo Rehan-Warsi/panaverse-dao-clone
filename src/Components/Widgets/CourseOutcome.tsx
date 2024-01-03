@@ -1,5 +1,5 @@
 import Image from "next/image"
-import OutcomePoster from "@/assets/images/outcome-poster.webp"
+import OutcomePoster from "../../Assets/Images/outcome-poster.webp"
 import Wrapper from "@/Components/Shared/Wrapper"
 
 const outcomePoint = ["Product Ownership","Freelacing","Global Marketing by Panaverse DAO","Boosting Economy."]
